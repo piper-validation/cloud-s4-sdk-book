@@ -2,8 +2,6 @@ general:
   productiveBranch: 'infrastructure-integration-test-no-deployment'
   collectTelemetryData: false
 steps:
-  cloudFoundryDeploy:
-    dockerImage: localhost:5000/ppiper/cf-cli
   executeNpm:
     dockerImage: 's4sdk/docker-node-browsers:v15'
 stages:
