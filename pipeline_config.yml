@@ -1,6 +1,7 @@
 general:
   productiveBranch: 'master'
   collectTelemetryData: false
+  automaticVersioning: false
 steps:
   cloudFoundryDeploy:
     dockerImage: localhost:5000/ppiper/cf-cli
