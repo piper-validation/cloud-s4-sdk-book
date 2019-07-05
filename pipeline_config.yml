@@ -1,5 +1,5 @@
 general:
-  productiveBranch: 'infrastructure-integration-test-neo'
+  productiveBranch: 'master'
   collectTelemetryData: false
 steps:
   deployToNeoWithCli:
