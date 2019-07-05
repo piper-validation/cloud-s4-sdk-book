@@ -8,13 +8,6 @@ steps:
   executeNpm:
     dockerImage: 's4sdk/docker-node-browsers:v15'
 stages:
-  npmAudit:
-    auditedAdvisories:
-      - "146"
-      - "593"
-      - "607"
-      - "803"
-      - "886"
   productionDeployment:
     cfTargets:
       - org: 'piper'
@@ -23,6 +16,3 @@ stages:
         appName: 'devops-docker-images-IT'
         manifest: 'manifest.yml'
         credentialsId: 'devops-docker-images-IT-cf'
-    appUrls:
-      - url: 'https://devops-docker-images-it.cfapps.eu10.hana.ondemand.com'
-        credentialId: 'devops-docker-images-IT-cf'
