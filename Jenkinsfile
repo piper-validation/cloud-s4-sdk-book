@@ -1,6 +1,38 @@
+#!/usr/bin/env groovy
 
-node {
-    deleteDir()
-    sh "git clone --depth 1 https://github.com/SAP/cloud-s4-sdk-pipeline.git pipelines"
-    load './pipelines/s4sdk-pipeline.groovy'
+final def pipelineSdkVersion = 'master'
+
+pipeline {
+    agent any
+    options {
+        timeout(time: 120, unit: 'MINUTES')
+        timestamps()
+        buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
+        skipDefaultCheckout()
+    }
+    stages {
+        stage('Init') {
+            steps {
+                milestone 10
+                library "s4sdk-pipeline-library@${pipelineSdkVersion}"
+                stageInitS4sdkPipeline script: this
+                abortOldBuilds script: this
+            }
+        }
+
+        stage('Build') {
+            steps {
+                milestone 20
+                stageBuild script: this
+            }
+        }
+
+        stage('Local Tests') {
+            parallel {
+                stage("Frontend Unit Tests") {
+                    steps { stageFrontendUnitTests script: this }
+                }
+            }
+        }
+    }
 }

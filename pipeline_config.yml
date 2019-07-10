@@ -1,9 +1,9 @@
 general:
-  productiveBranch: 'infrastructure-integration-test-no-deployment'
+  productiveBranch: 'master'
   collectTelemetryData: false
 steps:
   executeNpm:
-    dockerImage: 's4sdk/docker-node-browsers:v15'
+    dockerImage: 'localhost:5000/ppiper/node-browsers:latest'
 stages:
   npmAudit:
     auditedAdvisories:
