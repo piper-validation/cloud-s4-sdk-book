@@ -2,3 +2,7 @@ general:
   productiveBranch: 'master'
   collectTelemetryData: false
   automaticVersioning: false
+steps:
+  mtaBuild:
+    mtaBuildTool: "cloudMbt"
+

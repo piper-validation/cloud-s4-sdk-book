@@ -10,6 +10,4 @@ modules:
       disk-quota: 256M
     build-parameters:
       builder: maven
-      maven-opts:
-        command: [ clean, install ]
       build-result: target/*.war
