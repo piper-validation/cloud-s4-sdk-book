@@ -7,6 +7,11 @@
   <packaging>pom</packaging>
   <name>address-manager</name>
 
+  <modules>
+    <module>srv</module>
+    <module>integration-tests</module>
+  </modules>
+  
   <dependencyManagement>
     <dependencies>
       <dependency>
@@ -18,7 +23,7 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
-
+  
   <build>
     <plugins>
       <plugin>
