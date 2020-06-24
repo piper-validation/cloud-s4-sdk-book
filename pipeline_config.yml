@@ -1,7 +1,8 @@
 general:
   productiveBranch: 'master'
   collectTelemetryData: false
-  automaticVersioning: false
 steps:
   mtaBuild:
     dockerImage: localhost:5000/ppiper/mta-archive-builder
+  artifactPrepareVersion:
+    versioningType: 'library'
