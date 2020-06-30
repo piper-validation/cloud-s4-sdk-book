@@ -9,6 +9,9 @@ stages:
       - 1070
       - 1184
   productionDeployment:
+    cfCreateServices:
+      - serviceManifest: 'services-manifest.yml'
+        space: 'Prod'
     cfTargets:
       - org: 'piper'
         space: 'infra-testing'
