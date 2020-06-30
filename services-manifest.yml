@@ -10,7 +10,7 @@ create-services:
   # The XSUAA instance. Requires an instance of service 'Authorization & Trust Management' (xsuaa)
   # with plan 'broker' and configured with the parameters JSON below.
   # The name of the service instance will be used as specified in 'manifest-variables.yml'.
-  - name:   "((xsuaa-instance-name))"
+  - name:   "my-xsuaa"
     broker: "xsuaa"
     plan:   "application"
     parameters: >
@@ -36,6 +36,6 @@ create-services:
   # The managed HANA service instance (aka. instance manager).
   # Requires an instance of 'managed-hana' with plan 'hdi-shared'.
   # The name of the service instance will be used as specified in 'manifest-variables.yml'.
-  - name:   "((destination-service-name))"
+  - name:   "my-destination"
     broker: "destination"
     plan:   "lite"
