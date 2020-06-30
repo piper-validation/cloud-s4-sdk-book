@@ -11,7 +11,9 @@ stages:
   productionDeployment:
     cfCreateServices:
       - serviceManifest: 'services-manifest.yml'
-        space: 'Prod'
+        space: 'infra-testing'
+        org: 'piper'
+        credentialsId: 'devops-docker-images-IT-cf'
     cfTargets:
       - org: 'piper'
         space: 'infra-testing'
