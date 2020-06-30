@@ -1,5 +1,5 @@
 general:
-  productiveBranch: 'consumer-test-update'
+  productiveBranch: 'consumer-test'
   collectTelemetryData: false
 stages:
   npmAudit:
