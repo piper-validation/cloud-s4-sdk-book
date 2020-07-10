@@ -23,7 +23,7 @@ pipeline {
         stage('Build and Test') {
             steps {
                 milestone 20
-                piperPipelineStageBuild script: parameters.script, stageName: 'build'
+                piperPipelineStageBuild script: this, stageName: 'build'
             }
         }
 
