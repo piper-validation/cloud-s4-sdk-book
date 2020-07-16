@@ -1,5 +1,5 @@
 ID: address-manager
-_schema-version: "2.1"
+_schema-version: '3.1'
 version: 0.0.1
 modules:
   - name: address-manager-srv
@@ -9,7 +9,7 @@ modules:
       memory: 1024M
       disk-quota: 256M
     build-parameters:
-      builder: maven
-      maven-opts:
-        command: [ clean, install ]
+      builder: custom
+      commands:
+        - mvn install
       build-result: target/*.war
