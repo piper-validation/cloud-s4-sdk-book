@@ -1,0 +1,9 @@
+steps:
+  cloudFoundryDeploy:
+    apiEndpoint: 'https://api.cf.eu10.hana.ondemand.com'
+    deployTool: cf_native
+    deployType: standard
+    org: piper
+    space: infra-testing
+    appName: 'devops-docker-images-IT'
+    manifest: manifest.yml

@@ -1,7 +1,7 @@
-#!/usr/bin/env groovy 
+#!/usr/bin/env groovy
 
 /*
- * This file bootstraps the codified Continuous Delivery pipeline for SAP S/4HANA extensions.
+ * This file bootstraps the codified Continuous Delivery pipeline for side-by-side extensions.
  * The pipeline helps you to deliver software changes quickly and in a reliable manner.
  * A suitable Jenkins instance is required to run the pipeline.
  * The Jenkins can easily be bootstraped using the life-cycle script located inside the 'cx-server' directory.
@@ -15,6 +15,7 @@
  * Set pipelineVersion to a fixed released version (e.g. "v15") when running in a productive environment.
  * To find out about available versions and release notes, visit: https://github.com/SAP/cloud-s4-sdk-pipeline/releases
  */
+
 String pipelineVersion = "master"
 
 node {

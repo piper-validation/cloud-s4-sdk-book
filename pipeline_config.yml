@@ -1,5 +1,5 @@
 ###
-# This file configures the SAP S/4HANA Cloud SDK Continuous Delivery pipeline of your project.
+# This file configures the SAP Cloud SDK Continuous Delivery pipeline of your project.
 # For a reference of the configuration concept and available options, please have a look into its documentation.
 #
 # The documentation for the most recent pipeline version can always be found at:
@@ -17,32 +17,23 @@
 # This is a YAML-file. YAML is a indentation-sensitive file format. Please make sure to properly indent changes to it.
 ###
 
-
-
 ### General project setup
 general:
-
+  productiveBranch: 'master'
+  projectName: 'piper-validation-ts'
 
 ### Step-specific configuration
 steps:
-
+#  cloudFoundryDeploy:
+#    cloudFoundry:
+#      org: 'myOrg'
+#      appName: 'piper-validation-ts'
+#      manifest: 'manifest.yml'
+#      credentialsId: 'myDeploymentCredentialsId'
+#      apiEndpoint: 'https://api.cf.sap.hana.ondemand.com'
 
 ### Stage-specific configuration
 stages:
-#  integrationTests:
-#    credentials:
-#      - alias: 'mySystemAlias'
-#        credentialId: 'mySystemCredentialsId'
-
-#  s4SdkQualityChecks:
-#    nonErpDestinations:
-#      - 'myCustomDestination'
-
 #  productionDeployment:
 #    cfTargets:
-#      - org: 'myOrg'
-#        space: 'mySpace'
-#        apiEndpoint: 'https://'
-#        appName: 'myAppName'
-#        manifest: 'manifest.yml'
-#        credentialsId: 'myDeploymentCredentialsId'
+#      - space: 'myProductiveSpace'
