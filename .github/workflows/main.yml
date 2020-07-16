@@ -16,5 +16,5 @@ jobs:
     - name: Run CI
       run: |
         echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USER }} --password-stdin
-        docker build -t fwilhe/cf-it:latest .
-        docker push fwilhe/cf-it:latest
+        docker build -t ppiper/cloud-foundry-integration-test:maven .
+        docker push ppiper/cloud-foundry-integration-test:maven
