@@ -22,3 +22,6 @@ RUN apt-get -y update && apt-get -y install ca-certificates \
 
 COPY --from=builder /app /app
 COPY --from=builder /usr/local/bin/cf /usr/local/bin
+
+RUN cf add-plugin-repo CF-Community https://plugins.cloudfoundry.org && \
+    cf install-plugin multiapps -f
