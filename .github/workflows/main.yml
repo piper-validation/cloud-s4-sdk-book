@@ -30,3 +30,15 @@ jobs:
         echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USER }} --password-stdin
         docker build -t ppiper/cloud-foundry-integration-test:mta .
         docker push ppiper/cloud-foundry-integration-test:mta
+        
+  validate-ts:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        ref: validate-ts
+    - name: Run CI
+      run: |
+        echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USER }} --password-stdin
+        docker build -t ppiper/cloud-foundry-integration-test:ts .
+        docker push ppiper/cloud-foundry-integration-test:ts
