@@ -12,7 +12,7 @@ stages:
     appUrls:
       - url: 'https://devops-docker-images-it.cfapps.eu10.hana.ondemand.com/'
         parameters: '--NIGHTWATCH_ENV=chrome'
-      - url: 'https://approuter-cloudpot.cfapps.sap.hana.ondemand.com'
+      - url: 'https://devops-docker-images-it.cfapps.eu10.hana.ondemand.com/'
         parameters: '--NIGHTWATCH_ENV=firefox'
     cfTargets:
       - org: 'piper'
@@ -32,7 +32,7 @@ stages:
         space: 'infra-testing'
         apiEndpoint: 'https://api.cf.eu10.hana.ondemand.com'
         appName: 'devops-docker-images-IT'
-        manifest: 'manifest.yml'
+        manifest: 'manifest-test.yml'
         credentialsId: 'devops-docker-images-IT-cf'
 steps:
   cloudFoundryDeploy:
