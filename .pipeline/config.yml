@@ -11,8 +11,10 @@ stages:
   endToEndTests:
     appUrls:
       - url: 'https://devops-docker-images-it.cfapps.eu10.hana.ondemand.com/'
+        credentialId: devops-docker-images-IT-cf
         parameters: '--NIGHTWATCH_ENV=chrome'
       - url: 'https://devops-docker-images-it.cfapps.eu10.hana.ondemand.com/'
+        credentialId: devops-docker-images-IT-cf
         parameters: '--NIGHTWATCH_ENV=firefox'
     cfTargets:
       - org: 'piper'
