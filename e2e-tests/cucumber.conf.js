@@ -13,14 +13,12 @@ if (!fs.existsSync(reportsDirectory)){
 }
 
 BeforeAll(async () => {
-  const options = { 
+  const options = {
     configFile: __dirname + "/nightwatch.conf.js",
-    env: argv.NIGHTWATCH_ENV || 'firefox' 
+    env: argv.NIGHTWATCH_ENV || 'firefox'
   }
   await startWebDriver(options);
   await createSession(options);
-  const loginPage = client.page.login();
-  await loginPage.navigate().loginWithForm(false);
 });
 
 AfterAll(async () => {
