@@ -2,10 +2,7 @@
   "name": "piper-validation-consumer-test",
   "version": "1.0.0",
   "scripts": {
-    "ci-it-frontend": "karma start frontend-unit-tests/karma.conf.js --watch=false --single-run=true",
-    "ci-test": "karma start frontend-unit-tests/karma.conf.js --watch=false --single-run=true",
     "ci-e2e": "cucumber-js e2e-tests/features --retry 3 --require e2e-tests/cucumber.conf.js --require e2e-tests/steps --format json:s4hana_pipeline/reports/e2e/cucumber_report.json",
-    "ci-smoke": "cucumber-js e2e-tests/features --retry 3 --require e2e-tests/cucumber.conf.js --require e2e-tests/steps --format json:s4hana_pipeline/reports/e2e/cucumber_report.json"
   },
   "devDependencies": {
     "chromedriver": "2.45.0",
