@@ -21,7 +21,7 @@ stages:
         space: 'infra-testing'
         apiEndpoint: 'https://api.cf.eu10.hana.ondemand.com'
         appName: 'devops-docker-images-IT'
-        manifest: 'manifest.yml'
+        manifest: 'manifest-test.yml'
         credentialsId: 'devops-docker-images-IT-cf'
   productionDeployment:
     cfCreateServices:
@@ -34,7 +34,7 @@ stages:
         space: 'infra-testing'
         apiEndpoint: 'https://api.cf.eu10.hana.ondemand.com'
         appName: 'devops-docker-images-IT'
-        manifest: 'manifest-test.yml'
+        manifest: 'manifest.yml'
         credentialsId: 'devops-docker-images-IT-cf'
 steps:
   cloudFoundryDeploy:
