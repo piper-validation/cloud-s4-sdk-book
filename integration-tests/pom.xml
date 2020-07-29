@@ -17,7 +17,7 @@
 
     <properties>
         <surefire.skipTests>false</surefire.skipTests>
-        <surefire.forkCount>0</surefire.forkCount>
+        <surefire.forkCount>1</surefire.forkCount>
         <surefire.include>*</surefire.include>
         <surefire.exclude/>
         <surefire.groups/>
