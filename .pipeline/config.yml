@@ -1,6 +1,8 @@
 general:
   productiveBranch: 'consumer-test'
   collectTelemetryData: false
+  maven:
+    dockerImage: maven:3.6.3-jdk-11
 stages:
   npmAudit:
     auditedAdvisories:
