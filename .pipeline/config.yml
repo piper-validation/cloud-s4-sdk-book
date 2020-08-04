@@ -1,5 +1,5 @@
 general:
-  productiveBranch: 'consumer-test-java11-new'
+  productiveBranch: 'consumer-test'
   collectTelemetryData: false
 stages:
   npmAudit:
