@@ -4,5 +4,6 @@ general:
 steps:
   mtaBuild:
     dockerImage: localhost:5000/ppiper/mta-archive-builder
+    mtaBuildTool: classic
   artifactPrepareVersion:
     versioningType: 'library'
