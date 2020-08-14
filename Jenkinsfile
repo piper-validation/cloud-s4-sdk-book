@@ -23,12 +23,12 @@ pipeline {
         stage('Build') {
             steps {
                 milestone 20
-                piperPipelineStageBuild script: parameters.script, stageName: 'build'
+                piperPipelineStageBuild script: this, stageName: 'build'
             }
         }
 
         stage('Production Deployment') {
-            steps { piperPipelineStageRelease script: parameters.script, stageName: 'productionDeployment' }
+            steps { piperPipelineStageRelease script: this, stageName: 'productionDeployment' }
         }
     }
 }
