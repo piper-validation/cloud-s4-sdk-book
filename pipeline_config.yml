@@ -2,7 +2,7 @@ general:
   productiveBranch: 'master'
   collectTelemetryData: false
 steps:
-  deployToNeoWithCli:
+  neoDeploy:
     dockerImage: 'localhost:5000/ppiper/neo-cli'
 stages:
   npmAudit:
