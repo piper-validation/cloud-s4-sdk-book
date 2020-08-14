@@ -23,36 +23,9 @@ pipeline {
         stage('Build') {
             steps {
                 milestone 20
-                stageBuild script: this
+                    piperPipelineStageBuild script: this, stageName: 'build'
             }
-        }
 
-        stage('Local Tests') {
-            parallel {
-                stage("Static Code Checks") {
-                    when { expression { commonPipelineEnvironment.configuration.runStage.STATIC_CODE_CHECKS } }
-                    steps { stageStaticCodeChecks script: this }
-                }
-                stage("Lint") {
-                    steps { stageLint script: this }
-                }
-                stage("Backend Unit Tests") {
-                    when { expression { commonPipelineEnvironment.configuration.runStage.BACKEND_UNIT_TESTS } }
-                    steps { stageUnitTests script: this }
-                }
-                stage("Backend Integration Tests") {
-                    when { expression { commonPipelineEnvironment.configuration.runStage.INTEGRATION_TESTS } }
-                    steps { stageIntegrationTests script: this }
-                }
-                stage("Frontend Unit Tests") {
-                    when { expression { commonPipelineEnvironment.configuration.runStage.FRONTEND_UNIT_TESTS } }
-                    steps { stageFrontendUnitTests script: this }
-                }
-                stage("NPM Dependency Audit") {
-                    when { expression { commonPipelineEnvironment.configuration.runStage.NPM_AUDIT } }
-                    steps { stageNpmAudit script: this }
-                }
-            }
         }
     }
 }
