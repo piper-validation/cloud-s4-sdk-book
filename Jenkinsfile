@@ -11,32 +11,30 @@ pipeline {
         skipDefaultCheckout()
     }
     stages {
-            stage('Init') {
-                steps {
-                    loadPiper script: parameters.script
-                    piperPipelineStageInit script: parameters.script, customDefaults: ['default_s4_pipeline_environment.yml'], useTechnicalStageNames: true, configFile: parameters.configFile
-                    abortOldBuilds script: parameters.script
-                }
+        stage('Init') {
+            steps {
+                loadPiper script: this
+                piperPipelineStageInit script: this, customDefaults: ['default_s4_pipeline_environment.yml'], useTechnicalStageNames: true, configFile: parameters.configFile
+                abortOldBuilds script: this
             }
+        }
 
-            stage('Build and Test') {
-                steps {
-                    milestone 20
-                    piperPipelineStageBuild script: parameters.script
-                }
+        stage('Build and Test') {
+            steps {
+                milestone 20
+                piperPipelineStageBuild script: this
             }
+        }
 
-            stage('Local Tests') {
-                parallel {
-                    stage("Frontend Integration Tests") {
-                        when { expression { parameters.script.commonPipelineEnvironment.configuration.runStage.frontendIntegrationTests } }
-                        steps { stageFrontendIntegrationTests script: parameters.script }
-                    }
-                    stage("Additional Unit Tests") {
-                        when { expression { parameters.script.commonPipelineEnvironment.configuration.runStage.additionalUnitTests } }
-                        steps { piperPipelineStageAdditionalUnitTests script: parameters.script }
-                    }
+        stage('Local Tests') {
+            parallel {
+                stage("Frontend Integration Tests") {
+                    steps { stageFrontendIntegrationTests script: this }
+                }
+                stage("Additional Unit Tests") {
+                    steps { piperPipelineStageAdditionalUnitTests script: this }
                 }
             }
+        }
     }
 }
