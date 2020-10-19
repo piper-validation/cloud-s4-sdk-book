@@ -11,28 +11,32 @@ pipeline {
         skipDefaultCheckout()
     }
     stages {
-        stage('Init') {
-            steps {
-                milestone 10
-                library "s4sdk-pipeline-library@${pipelineSdkVersion}"
-                stageInitS4sdkPipeline script: this
-                abortOldBuilds script: this
-            }
-        }
-
-        stage('Build and Test') {
-            steps {
-                milestone 20
-                piperPipelineStageBuild script: this, stageName: 'build'
-            }
-        }
-
-        stage('Local Tests') {
-            parallel {
-                stage("Frontend Unit Tests") {
-                    steps { stageFrontendUnitTests script: this }
+            stage('Init') {
+                steps {
+                    loadPiper script: parameters.script
+                    piperPipelineStageInit script: parameters.script, customDefaults: ['default_s4_pipeline_environment.yml'], useTechnicalStageNames: true, configFile: parameters.configFile
+                    abortOldBuilds script: parameters.script
                 }
             }
-        }
+
+            stage('Build and Test') {
+                steps {
+                    milestone 20
+                    piperPipelineStageBuild script: parameters.script
+                }
+            }
+
+            stage('Local Tests') {
+                parallel {
+                    stage("Frontend Integration Tests") {
+                        when { expression { parameters.script.commonPipelineEnvironment.configuration.runStage.frontendIntegrationTests } }
+                        steps { stageFrontendIntegrationTests script: parameters.script }
+                    }
+                    stage("Additional Unit Tests") {
+                        when { expression { parameters.script.commonPipelineEnvironment.configuration.runStage.additionalUnitTests } }
+                        steps { piperPipelineStageAdditionalUnitTests script: parameters.script }
+                    }
+                }
+            }
     }
 }
