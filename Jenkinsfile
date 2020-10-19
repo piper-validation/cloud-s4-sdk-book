@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-final def pipelineSdkVersion = 'master'
+@Library('s4sdk-pipeline-library@master') _
 
 pipeline {
     agent any
