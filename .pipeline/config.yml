@@ -1,0 +1,16 @@
+general:
+  productiveBranch: 'validate-node-browsers'
+  collectTelemetryData: false
+steps:
+  executeNpm:
+    dockerImage: 'localhost:5000/ppiper/node-browsers:latest'
+stages:
+  npmAudit:
+    auditedAdvisories:
+      - "146"
+      - "593"
+      - "607"
+      - "803"
+      - "886"
+      - "1068"
+      - "1070"
