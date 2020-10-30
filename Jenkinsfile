@@ -14,7 +14,7 @@ pipeline {
         stage('Init') {
             steps {
                 loadPiper script: this
-                piperPipelineStageInit script: this, customDefaults: ['default_s4_pipeline_environment.yml'], useTechnicalStageNames: true, configFile: parameters.configFile
+                piperPipelineStageInit script: this, customDefaults: ['default_s4_pipeline_environment.yml'], useTechnicalStageNames: true
                 abortOldBuilds script: this
             }
         }
