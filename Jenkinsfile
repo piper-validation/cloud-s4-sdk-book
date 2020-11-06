@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-final def pipelineSdkVersion = 'master'
+final def pipelineSdkVersion = 'v24'
 
 pipeline {
     agent any
@@ -23,12 +23,12 @@ pipeline {
         stage('Build') {
             steps {
                 milestone 20
-                piperPipelineStageBuild script: this, stageName: 'build'
+                stageBuild script: this
             }
         }
 
         stage('Production Deployment') {
-            steps { piperPipelineStageRelease script: this, stageName: 'productionDeployment' }
+            steps { stageProductionDeployment script: this }
         }
     }
 }
