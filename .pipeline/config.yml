@@ -2,6 +2,9 @@ general:
   inferBuildTool: true
   productiveBranch: 'consumer-test-neo-gpp'
   collectTelemetryData: false
+steps:
+  artifactPrepareVersion:
+    versioningType: 'cloud_noTag'
 stages:
   Release:
     neoTargets:
