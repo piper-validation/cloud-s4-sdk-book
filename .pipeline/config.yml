@@ -6,10 +6,6 @@ general:
 steps:
   artifactPrepareVersion:
     versioningType: 'cloud_noTag'
-  cloudFoundryDeploy:
-    dockerImage: 'ppiper/cf-cli:v2'
-    keepOldInstance: true
-    useGoStep: true
   mtaBuild:
     buildTarget: 'CF'
     mtaBuildTool: 'cloudMbt'
