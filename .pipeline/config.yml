@@ -9,7 +9,6 @@ steps:
   mtaBuild:
     buildTarget: 'CF'
     mtaBuildTool: 'cloudMbt'
-    installArtifacts: true
   neoDeploy:
     dockerImage: 'ppiper/neo-cli:v2'
     deployMode: 'warParams'
