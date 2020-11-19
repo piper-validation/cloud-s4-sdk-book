@@ -15,16 +15,10 @@ steps:
     deployMode: 'warParams'
     neoHome: '/sdk'
     mavenDeploymentModule: 'application'
-  piperStageWrapper:
-    stageLocking: false
-  tmsUpload:
-    namedUser: 'CLOUD_SDK_PIPELINE'
 stages:
   Confirm:
     manualConfirmation: false
   Release:
-    lockingResource: 'release'
-    stageLocking: true
     neoTargets:
       - host: 'eu1.hana.ondemand.com'
         account: 's7am47zded'
