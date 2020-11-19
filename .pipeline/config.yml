@@ -1,8 +1,9 @@
 general:
-  productiveBranch: 'consumer-test-neo'
+  inferBuildTool: true
+  productiveBranch: 'consumer-test-neo-gpp'
   collectTelemetryData: false
 stages:
-  productionDeployment:
+  Release:
     neoTargets:
       - host: 'eu1.hana.ondemand.com'
         account: 's7am47zded'
