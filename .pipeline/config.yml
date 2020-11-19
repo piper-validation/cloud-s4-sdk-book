@@ -1,12 +1,31 @@
 general:
   inferBuildTool: true
+  inferProjectName: true
   productiveBranch: 'consumer-test-neo-gpp'
   collectTelemetryData: false
 steps:
   artifactPrepareVersion:
     versioningType: 'cloud_noTag'
+  cloudFoundryDeploy:
+    dockerImage: 'ppiper/cf-cli:v2'
+    keepOldInstance: true
+    useGoStep: true
+  mtaBuild:
+    buildTarget: 'CF'
+    mtaBuildTool: 'cloudMbt'
+    installArtifacts: true
+  neoDeploy:
+    dockerImage: 'ppiper/neo-cli:v2'
+    deployMode: 'warParams'
+    neoHome: '/sdk'
+    mavenDeploymentModule: 'application'
+  piperStageWrapper:
+    stageLocking: false
+  tmsUpload:
+    namedUser: 'CLOUD_SDK_PIPELINE'
 stages:
   Release:
+    lockingResource: 'release'
     neoTargets:
       - host: 'eu1.hana.ondemand.com'
         account: 's7am47zded'
