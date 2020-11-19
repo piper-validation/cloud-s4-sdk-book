@@ -1,5 +1,1 @@
-
-node {
-    deleteDir()
-    piperPipeline(script: this)
-}
+piperPipeline(script: this)
