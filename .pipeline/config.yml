@@ -8,7 +8,6 @@ steps:
     versioningType: 'cloud_noTag'
   cloudFoundryDeploy:
     dockerImage: 'ppiper/cf-cli:v2'
-    keepOldInstance: true
     useGoStep: true
     apiEndpoint: 'https://api.cf.eu10.hana.ondemand.com'
     deployTool: cf_native
@@ -22,7 +21,6 @@ steps:
   mtaBuild:
     buildTarget: 'CF'
     mtaBuildTool: 'cloudMbt'
-    installArtifacts: true
 stages:
   Confirm:
     manualConfirmation: false
