@@ -22,6 +22,7 @@ steps:
 stages:
   Release:
     lockingResource: 'release'
+    stageLocking: true
     neoTargets:
       - host: 'eu1.hana.ondemand.com'
         account: 's7am47zded'
