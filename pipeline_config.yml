@@ -1,7 +1,17 @@
 general:
   productiveBranch: 'infrastructure-integration-test-no-deployment'
   collectTelemetryData: false
+  inferBuildTool: true
 steps:
   executeNpm:
     dockerImage: 'ghcr.io/sap/ppiper-node-browsers:v8'
+  artifactPrepareVersion:
+    versioningType: cloud_noTag
 stages:
+  'Additional Unit Tests':
+    karmaExecuteTests: false
+  Integration:
+    mavenExecuteIntegration: false
+
+  Confirm:
+    manualConfirmation: false
