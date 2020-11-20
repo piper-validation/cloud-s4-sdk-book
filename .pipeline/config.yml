@@ -8,6 +8,10 @@ steps:
   artifactPrepareVersion:
     versioningType: cloud_noTag
 stages:
+  'Build':
+    mavenExecuteStaticCodeChecks: true
+    npmExecuteLint: true
+
   'Additional Unit Tests':
     karmaExecuteTests: false
   Integration:
