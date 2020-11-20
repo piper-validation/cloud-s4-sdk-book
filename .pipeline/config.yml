@@ -1,7 +1,7 @@
 general:
   productiveBranch: 'infrastructure-integration-test-no-deployment'
   collectTelemetryData: false
-  inferBuildTool: true
+  buildTool: 'maven'
 steps:
   executeNpm:
     dockerImage: 'ghcr.io/sap/ppiper-node-browsers:v8'
