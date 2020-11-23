@@ -1,7 +1,7 @@
 general:
   inferBuildTool: true
   inferProjectName: true
-  productiveBranch: 'consumer-test-gpp'
+  productiveBranch: 'consumer-test'
   collectTelemetryData: false
 steps:
   artifactPrepareVersion:
