@@ -1,4 +1,4 @@
-String pipelineVersion = "master"
+String pipelineVersion = "v45"
 
 node {
     deleteDir()
