@@ -16,7 +16,7 @@
  * To find out about available versions and release notes, visit: https://github.com/SAP/cloud-s4-sdk-pipeline/releases
  */
 
-String pipelineVersion = "master"
+String pipelineVersion = "v45"
 
 node {
     deleteDir()
