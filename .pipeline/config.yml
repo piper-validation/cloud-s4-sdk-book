@@ -1,34 +1,12 @@
 general:
-  productiveBranch: 'validate-cx-server-gpp'
+  productiveBranch: 'validate-cx-server'
   collectTelemetryData: false
   buildTool: 'maven'
 steps:
-  executeNpm:
+  npmExecuteScripts:
     dockerImage: 'ghcr.io/sap/ppiper-node-browsers:v8'
   artifactPrepareVersion:
     versioningType: cloud_noTag
-
-  # Disable checks that require outdated/legacy/unmaintained Jenkins plugins
-  checksPublishResults:
-    pmd:
-      active: false
-    cpd:
-      active: false
-    findbugs:
-      active: false
-    checkstyle:
-      active: false
-    warnings:
-      active: false
-    eslint:
-      active: false
-    pylint:
-      active: false
-    tasks:
-      active: false
-    aggregation:
-      active: false
-
 stages:
   'Build':
     mavenExecuteStaticCodeChecks: true
