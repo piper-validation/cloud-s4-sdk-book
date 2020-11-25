@@ -1,0 +1,21 @@
+general:
+  productiveBranch: 'validate-cx-server'
+  collectTelemetryData: false
+  buildTool: 'maven'
+steps:
+  npmExecuteScripts:
+    dockerImage: 'ghcr.io/sap/ppiper-node-browsers:v8'
+  artifactPrepareVersion:
+    versioningType: cloud_noTag
+stages:
+  'Build':
+    mavenExecuteStaticCodeChecks: true
+    npmExecuteLint: true
+
+  'Additional Unit Tests':
+    karmaExecuteTests: false
+  Integration:
+    mavenExecuteIntegration: false
+
+  Confirm:
+    manualConfirmation: false
