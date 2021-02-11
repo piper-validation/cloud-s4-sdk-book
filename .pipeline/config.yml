@@ -7,7 +7,7 @@ steps:
   artifactPrepareVersion:
     versioningType: 'cloud_noTag'
   cloudFoundryDeploy:
-    dockerImage: 'ppiper/cf-cli:v2'
+    dockerImage: 'ppiper/cf-cli:6'
     useGoStep: true
     apiEndpoint: 'https://api.cf.eu10.hana.ondemand.com'
     deployTool: cf_native
